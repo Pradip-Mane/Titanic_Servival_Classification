@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>ML API</title>
+</head>
+<body>
+   
+    <div class="container">
+        <!-- code here -->
+        <div class="card">
+            <div class="card-image">	
+                <h2 class="card-heading">
+                    Titanic_Servival_Classification
+                </h2>
+            </div>
+            <form class="card-form" action="{{ url_for('predict')}}" method="POST">
+                <div class="input">
+                    <label  class="input-label">Passenger class</label>
+                    <input name="Pclass" type="number" step="any" min="0" max="3" class="input-field" required/>
+                </div>
+                <div class="input">
+                    <label  class="input-label">Age of passanger in years</label>
+                    <input name="Age" type="number" step="any" min="0" max="120" class="input-field" required/>
+                </div>
+                <div class="input">
+                    <label  class="input-label">sibling and spouse</label>
+                    <input name="SibSp" type="number" step="any" min="0" max="20" class="input-field" required/>
+                </div>
+                <div class="input">
+                    <label  class="input-label">parent and children</label>
+                    <input name="Parch" type="number" step="any" min="0" max="10" class="input-field" required/>
+                </div>
+                <div class="input">
+                    <label  class="input-label">ticket fare</label>
+                    <input name="Fare" type="number" step="any" min="0" max="1000" class="input-field" required/>
+                </div>
+
+                <div class="input">
+                    <br>
+                    <label for="Sex_male">Sex (Male,Female)</label>
+                    <select id="Sex_male" name="Sex_male">
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                    </select>
+                    <br>
+                </div>
+
+
+                <div class="input">
+                    <label  class="input-label">Embarked_Q</label>
+                    <input name="Embarked_Q" type="number" step="any" min="0" max="1" class="input-field" required/>
+                </div>
+
+                <div class="input">
+                    <label  class="input-label">Embarked_S</label>
+                    <input name="Embarked_S" type="number" step="any" min="0" max="1" class="input-field" required/>
+                </div>
+
+        
+                             
+                <div class="action">
+                    <br>
+                    <button type="submit" class="action-button">Predict</button>
+                    <br>
+                </div>
+            </form>
+            <br>
+
+            <p style="color: darkred; font-weight: bold;">{{ prediction }}</p>
+            <img src="{{ image }}" alt="{{ prediction }}">
+
+
+            <br>
+        </div>
+    </div>
+    
+</body>
+</html>
